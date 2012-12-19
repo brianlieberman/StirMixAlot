@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Bloody Mary</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Hot Pepper Sauce</key>
+			<string>Dash</string>
+			<key>Worcestershire Sauce</key>
+			<string>1 Dash</string>
+			<key>Lemon Juice</key>
+			<string>1/2 oz</string>
+			<key>Vodka</key>
+			<string>1.5 oz</string>
+			<key>Tomato Juice</key>
+			<string>3 oz</string>
+		</dict>
+	</dict>
+	<key>Martini</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Olive</key>
+			<string>1</string>
+			<key>Dry Vermouth</key>
+			<string>1/2 oz</string>
+			<key>Gin</key>
+			<string>2 1/2 oz</string>
+		</dict>
+	</dict>
+	<key>Gin &amp; Tonic</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Tonic Water</key>
+			<string>3 oz</string>
+			<key>Gin</key>
+			<string>1.5 oz</string>
+		</dict>
+	</dict>
+	<key>Sea Breeze</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Grapefruit Juice</key>
+			<string>1 oz</string>
+			<key>Cranberry Juice</key>
+			<string>2 oz</string>
+			<key>Vodka</key>
+			<string>1.5 oz</string>
+			<key>Ice Cubes</key>
+			<string>1 Cup</string>
+		</dict>
+	</dict>
+	<key>Long Island Iced Tea</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Lime</key>
+			<string>1 Wedge</string>
+			<key>Cola</key>
+			<string>2 oz</string>
+			<key>Sweet and Sour mix</key>
+			<string>5 oz</string>
+			<key>Triple Sec</key>
+			<string>1 oz</string>
+			<key>Tequila</key>
+			<string>1 oz</string>
+			<key>Gin</key>
+			<string>1 oz</string>
+			<key>Rum</key>
+			<string>1 oz</string>
+			<key>Vodka</key>
+			<string>1 oz</string>
+		</dict>
+	</dict>
+	<key>Malibu Bay Breeze</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Pineapple Juice</key>
+			<string>4 oz</string>
+			<key>Coconut Rum</key>
+			<string>1.5 oz</string>
+			<key>Cranberry Juice</key>
+			<string>1 tablespoon</string>
+		</dict>
+	</dict>
+	<key>Frozen Mudslide</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Whipped cream</key>
+			<string>1/2 cup</string>
+			<key>Chocolate syrup</key>
+			<string>2 tablespoons</string>
+			<key>Irish cream liqueur</key>
+			<string>1.5 oz</string>
+			<key>Coffee liqueur</key>
+			<string>1.5 oz</string>
+			<key>Vodka</key>
+			<string>1.5 oz</string>
+			<key>Crushed Ice</key>
+			<string>4 Cups</string>
+		</dict>
+	</dict>
+	<key>Mimosa</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Cold Champagne</key>
+			<string>750 ml</string>
+			<key>Frozen orange juice concentrate, thawed and undiluted</key>
+			<string>6 oz</string>
+			<key>Cold Water</key>
+			<string>3/4 Cup</string>
+			<key>Pineapple Juice</key>
+			<string>12 oz</string>
+			<key>Apricot-Mango nectar</key>
+			<string>12 oz</string>
+		</dict>
+	</dict>
+	<key>Margarita</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Tequila</key>
+			<string>6 oz</string>
+			<key>Triple Sec</key>
+			<string>2 oz</string>
+			<key>Frozen Limeade Concentrate</key>
+			<string>6 oz</string>
+		</dict>
+	</dict>
+	<key>Cranberry Vodka</key>
+	<dict>
+		<key>Ingredients</key>
+		<dict>
+			<key>Cranberry Juice</key>
+			<string>3 oz</string>
+			<key>Vodka</key>
+			<string>1.5 oz</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

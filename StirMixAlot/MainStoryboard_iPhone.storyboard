@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="j2l-yJ-8BG">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Make Mix View Controller - Make Your Own Mix-->
+        <scene sceneID="Nfb-Sn-uQ9">
+            <objects>
+                <viewController id="O3m-cj-NOt" customClass="MakeMixViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f0b-mD-bXN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a name for your mix" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6P-s8-tlG">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="BKN-Zp-lU8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardDone:" destination="O3m-cj-NOt" eventType="editingDidEndOnExit" id="aUN-LD-nCB"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="7ma-cu-xST">
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="0sR-Ak-Bws"/>
+                                    <constraint firstAttribute="height" constant="313" id="nHG-P4-I1e"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mixCell" id="6Cl-EH-DHA" customClass="MakeMixCell">
+                                        <rect key="frame" x="0.0" y="46" width="288" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="268" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Absolut 100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9E-dZ-SvV">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="248" id="Esj-lP-aXg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Y9E-dZ-SvV" firstAttribute="leading" secondItem="6Cl-EH-DHA" secondAttribute="leading" constant="30" id="Mvz-ya-B8y"/>
+                                            <constraint firstItem="Y9E-dZ-SvV" firstAttribute="top" secondItem="6Cl-EH-DHA" secondAttribute="top" constant="12" id="X4z-LJ-kVm"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mixLabel" destination="Y9E-dZ-SvV" id="XF3-SD-Y4k"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="O3m-cj-NOt" id="mDV-1N-ke2"/>
+                                    <outlet property="delegate" destination="O3m-cj-NOt" id="Dvi-yQ-9EU"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="GjQ-EL-WjP">
+                                <items>
+                                    <barButtonItem title="New Mixer" id="cUP-si-2n8">
+                                        <connections>
+                                            <action selector="newMixerPressed:" destination="O3m-cj-NOt" id="Hp6-Sf-Voe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="145" style="plain" systemItem="fixedSpace" id="6xZ-XA-Rbl"/>
+                                    <barButtonItem title="Save Mix" id="sqL-xm-gKe">
+                                        <connections>
+                                            <action selector="savePressed:" destination="O3m-cj-NOt" id="fyK-SV-FJ1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE3-VP-v3p">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="Y4e-13-kEW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Take Picture">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePicturePressed:" destination="O3m-cj-NOt" eventType="touchUpInside" id="xPJ-Zy-wst"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hE3-VP-v3p" firstAttribute="centerX" secondItem="7ma-cu-xST" secondAttribute="centerX" type="default" id="Bvc-90-mtR"/>
+                            <constraint firstItem="7ma-cu-xST" firstAttribute="top" secondItem="p6P-s8-tlG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="I4K-7t-M9G"/>
+                            <constraint firstItem="GjQ-EL-WjP" firstAttribute="top" secondItem="f0b-mD-bXN" secondAttribute="top" type="default" id="IDM-5p-1U6"/>
+                            <constraint firstItem="p6P-s8-tlG" firstAttribute="top" secondItem="f0b-mD-bXN" secondAttribute="top" constant="53" id="J8J-zm-Kj1"/>
+                            <constraint firstItem="7ma-cu-xST" firstAttribute="leading" secondItem="f0b-mD-bXN" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="N0C-lq-MwR"/>
+                            <constraint firstItem="p6P-s8-tlG" firstAttribute="centerX" secondItem="7ma-cu-xST" secondAttribute="centerX" type="default" id="OWM-0V-JmA"/>
+                            <constraint firstItem="GjQ-EL-WjP" firstAttribute="leading" secondItem="f0b-mD-bXN" secondAttribute="leading" type="default" id="Sg8-eC-0cC"/>
+                            <constraint firstItem="GjQ-EL-WjP" firstAttribute="trailing" secondItem="f0b-mD-bXN" secondAttribute="trailing" type="default" id="XM5-ld-2V2"/>
+                            <constraint firstAttribute="bottom" secondItem="hE3-VP-v3p" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="u7x-4z-gtW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Make Your Own Mix" id="87G-3z-iRo"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <connections>
+                        <outlet property="mixName" destination="p6P-s8-tlG" id="uD0-01-peD"/>
+                        <outlet property="mixTable" destination="7ma-cu-xST" id="Snj-77-coM"/>
+                        <outlet property="pictureButton" destination="hE3-VP-v3p" id="ahp-gg-3U3"/>
+                        <segue destination="ltD-Ln-lIB" kind="push" identifier="addNewMixer" id="F5G-oS-zaN"/>
+                        <segue destination="hRG-98-lpu" kind="push" identifier="addMixer" id="EQR-ae-BY8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X5f-ba-8wS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1176" y="-295"/>
+        </scene>
+        <!--Add New Mixer View Controller - Add New Mixer-->
+        <scene sceneID="oxZ-sm-qeZ">
+            <objects>
+                <viewController id="ltD-Ln-lIB" customClass="AddNewMixerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jDq-Jy-wWz">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYQ-fR-wTQ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="fAF-aF-IAg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="ltD-Ln-lIB" eventType="touchUpInside" id="LV4-ox-7iG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name of new mixer" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="clR-Bd-1Vx">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardDone:" destination="ltD-Ln-lIB" eventType="editingDidEndOnExit" id="p8u-hr-Hom"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter category of new mixer" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tYQ-Pf-3Gd">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardDone:" destination="ltD-Ln-lIB" eventType="editingDidEndOnExit" id="XmX-cH-lpk"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tYQ-Pf-3Gd" firstAttribute="top" secondItem="jDq-Jy-wWz" secondAttribute="top" constant="85" id="4u4-VK-iVI"/>
+                            <constraint firstItem="tYQ-Pf-3Gd" firstAttribute="leading" secondItem="jDq-Jy-wWz" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8pC-Ty-jUk"/>
+                            <constraint firstAttribute="trailing" secondItem="tYQ-Pf-3Gd" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="9E7-rO-F5y"/>
+                            <constraint firstItem="clR-Bd-1Vx" firstAttribute="top" secondItem="tYQ-Pf-3Gd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="FlY-8Y-Tx8"/>
+                            <constraint firstAttribute="trailing" secondItem="clR-Bd-1Vx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="P2e-am-3bc"/>
+                            <constraint firstItem="clR-Bd-1Vx" firstAttribute="centerX" secondItem="yYQ-fR-wTQ" secondAttribute="centerX" type="default" id="Usl-jj-6wU"/>
+                            <constraint firstItem="clR-Bd-1Vx" firstAttribute="leading" secondItem="jDq-Jy-wWz" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jyq-kq-d6U"/>
+                            <constraint firstItem="yYQ-fR-wTQ" firstAttribute="top" secondItem="clR-Bd-1Vx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yrR-Ii-snB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Mixer" id="Pgf-UM-E4s"/>
+                    <connections>
+                        <outlet property="catName" destination="tYQ-Pf-3Gd" id="KI2-vg-mFS"/>
+                        <outlet property="nameMixerName" destination="clR-Bd-1Vx" id="l04-1k-5Rs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bxs-ED-G5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1975" y="-627"/>
+        </scene>
+        <!--All Mixes View Controller - All Mixes-->
+        <scene sceneID="PER-fE-pOr">
+            <objects>
+                <tableViewController id="RcI-5Z-z2F" customClass="AllMixesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="X7M-NF-VwC">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackOpaque" id="40k-Xd-T9Z">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="RcI-5Z-z2F" id="Txq-db-AZw"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customMixCell" id="K3R-gB-ukj">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RcI-5Z-z2F" id="m8v-7o-ZnL"/>
+                            <outlet property="delegate" destination="RcI-5Z-z2F" id="tvB-NV-dJc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="All Mixes" id="8HO-aB-A4Y"/>
+                    <connections>
+                        <outlet property="searchBar" destination="40k-Xd-T9Z" id="k7V-nK-waI"/>
+                        <outlet property="searchDisplayController" destination="WPb-Fu-pLx" id="iIK-Np-UFe"/>
+                        <segue destination="xKF-Mm-9ee" kind="push" identifier="allMixDetail" id="5oD-QT-oAN"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhX-Iq-aQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="WPb-Fu-pLx">
+                    <connections>
+                        <outlet property="delegate" destination="RcI-5Z-z2F" id="A50-rg-5mq"/>
+                        <outlet property="searchBar" destination="40k-Xd-T9Z" id="X37-pX-sJa"/>
+                        <outlet property="searchContentsController" destination="RcI-5Z-z2F" id="KNz-t0-2ag"/>
+                        <outlet property="searchResultsDataSource" destination="RcI-5Z-z2F" id="2Dm-Cb-PZP"/>
+                        <outlet property="searchResultsDelegate" destination="RcI-5Z-z2F" id="pvk-c1-Rnx"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1085" y="1070"/>
+        </scene>
+        <!--All Mixes Detail View Controller - Bloody Mary-->
+        <scene sceneID="dZo-jT-9kT">
+            <objects>
+                <viewController id="xKF-Mm-9ee" customClass="AllMixesDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6AK-GN-rwm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1a-Zp-tqC">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="fU1-Ct-kls"/>
+                                    <constraint firstAttribute="height" constant="200" id="iOt-WX-ZWe"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UG8-cc-1vD">
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UG8-cc-1vD" firstAttribute="top" secondItem="T1a-Zp-tqC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0ke-zX-80D"/>
+                            <constraint firstItem="T1a-Zp-tqC" firstAttribute="trailing" secondItem="UG8-cc-1vD" secondAttribute="trailing" type="default" id="4fS-zY-Vpe"/>
+                            <constraint firstItem="UG8-cc-1vD" firstAttribute="centerX" secondItem="6AK-GN-rwm" secondAttribute="centerX" type="default" id="6lI-IS-cQp"/>
+                            <constraint firstItem="T1a-Zp-tqC" firstAttribute="top" secondItem="6AK-GN-rwm" secondAttribute="top" constant="20" symbolic="YES" type="default" id="DHw-Tb-qeg"/>
+                            <constraint firstItem="UG8-cc-1vD" firstAttribute="leading" secondItem="T1a-Zp-tqC" secondAttribute="leading" type="default" id="SAm-TE-cI8"/>
+                            <constraint firstAttribute="bottom" secondItem="UG8-cc-1vD" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="jSA-ON-GOq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bloody Mary" id="afC-q3-b3K"/>
+                    <connections>
+                        <outlet property="mixImage" destination="T1a-Zp-tqC" id="zY8-Tk-ieV"/>
+                        <outlet property="recipe" destination="UG8-cc-1vD" id="Nuu-2J-rov"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OlE-YF-8b1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="1070"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="UTa-j4-FFo">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="j2l-yJ-8BG" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="9FU-Xo-pSE">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="S4x-GQ-ePD" kind="relationship" relationship="viewControllers" id="6qT-PL-eV2"/>
+                        <segue destination="N88-aT-yaJ" kind="relationship" relationship="viewControllers" id="L3J-Bq-vIM"/>
+                        <segue destination="2QS-fL-ACg" kind="relationship" relationship="viewControllers" id="tJD-sr-vD2"/>
+                        <segue destination="a9v-AA-8I9" kind="relationship" relationship="viewControllers" id="h8u-MU-qNl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XDL-sK-U84" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="32"/>
+        </scene>
+        <!--Navigation Controller - Make a Mix-->
+        <scene sceneID="fdv-uO-IOw">
+            <objects>
+                <navigationController id="S4x-GQ-ePD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Make a Mix" image="+.png" id="YiS-gA-MJm"/>
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="L0G-Ke-Sg9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O3m-cj-NOt" kind="relationship" relationship="rootViewController" id="VZT-wQ-Xlv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9w-td-QSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="650" y="-295"/>
+        </scene>
+        <!--Add Mixer View Controller - Add Mixer-->
+        <scene sceneID="axm-AS-GgG">
+            <objects>
+                <viewController id="hRG-98-lpu" customClass="AddMixerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1S5-gC-aZQ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Be-2D-AhI">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add Mixer">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMixPressed:" destination="hRG-98-lpu" eventType="touchUpInside" id="3Lt-BR-Qg5"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8Wa-aT-JUU">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="keyboardDone:" destination="hRG-98-lpu" eventType="editingDidEndOnExit" id="2fk-Tu-Nf1"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Absolut 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nN1-hJ-KbJ">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Be-2D-AhI" firstAttribute="top" secondItem="8Wa-aT-JUU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5OU-Ii-Bqc"/>
+                            <constraint firstAttribute="trailing" secondItem="8Wa-aT-JUU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="AyM-6m-6gH"/>
+                            <constraint firstItem="nN1-hJ-KbJ" firstAttribute="top" secondItem="1S5-gC-aZQ" secondAttribute="top" constant="90" id="Fab-Ax-YJE"/>
+                            <constraint firstItem="nN1-hJ-KbJ" firstAttribute="leading" secondItem="1S5-gC-aZQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Qhx-TC-IuH"/>
+                            <constraint firstAttribute="trailing" secondItem="nN1-hJ-KbJ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fbS-ya-iTq"/>
+                            <constraint firstItem="8Wa-aT-JUU" firstAttribute="leading" secondItem="1S5-gC-aZQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="grz-m5-cRB"/>
+                            <constraint firstItem="8Wa-aT-JUU" firstAttribute="top" secondItem="nN1-hJ-KbJ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hny-1X-eIO"/>
+                            <constraint firstItem="8Wa-aT-JUU" firstAttribute="centerX" secondItem="9Be-2D-AhI" secondAttribute="centerX" type="default" id="zQa-nu-6k5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Mixer" id="pv9-2r-tUF"/>
+                    <connections>
+                        <outlet property="mixAmount" destination="8Wa-aT-JUU" id="874-KK-PHf"/>
+                        <outlet property="mixerLabel" destination="nN1-hJ-KbJ" id="K6R-yY-BL2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Psc-vI-rBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1983" y="73"/>
+        </scene>
+        <!--Custom Mixes View Controller - My Custom Mixes-->
+        <scene sceneID="fzy-Sl-GqA">
+            <objects>
+                <tableViewController id="QB0-4G-iJD" customClass="CustomMixesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ttH-xI-2BB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackOpaque" id="kAc-FK-uqP">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="QB0-4G-iJD" id="a9o-rR-Vkj"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customMixCell" id="CKm-X3-eMP">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QB0-4G-iJD" id="r3N-Rc-WaD"/>
+                            <outlet property="delegate" destination="QB0-4G-iJD" id="8MV-N8-Ah1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Custom Mixes" id="VjS-NJ-7yG"/>
+                    <connections>
+                        <outlet property="searchBar" destination="kAc-FK-uqP" id="JP1-l5-sqC"/>
+                        <outlet property="searchDisplayController" destination="aAh-x9-5X0" id="AVr-QI-lLR"/>
+                        <segue destination="Vh0-CS-V4J" kind="push" identifier="showMixDetail" id="CKa-j5-M1a"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzb-f1-AfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="aAh-x9-5X0">
+                    <connections>
+                        <outlet property="delegate" destination="QB0-4G-iJD" id="MkX-YU-mqc"/>
+                        <outlet property="searchBar" destination="kAc-FK-uqP" id="mUr-cB-ms2"/>
+                        <outlet property="searchContentsController" destination="QB0-4G-iJD" id="iP3-gZ-dQe"/>
+                        <outlet property="searchResultsDataSource" destination="QB0-4G-iJD" id="kE5-fz-Pnc"/>
+                        <outlet property="searchResultsDelegate" destination="QB0-4G-iJD" id="Fy1-Mi-4iS"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1127" y="403"/>
+        </scene>
+        <!--Mix Detail View Controller - Bloody Mary-->
+        <scene sceneID="awL-TI-4yf">
+            <objects>
+                <viewController id="Vh0-CS-V4J" customClass="MixDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iay-qU-eXP">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGj-vK-KuR">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="byO-tV-E61"/>
+                                    <constraint firstAttribute="height" constant="200" id="mTr-KR-fHn"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZ2-Tl-7om">
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tZ2-Tl-7om" firstAttribute="top" secondItem="iGj-vK-KuR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="44J-lQ-hj5"/>
+                            <constraint firstItem="iGj-vK-KuR" firstAttribute="leading" secondItem="tZ2-Tl-7om" secondAttribute="leading" type="default" id="5w4-vx-zGb"/>
+                            <constraint firstItem="iGj-vK-KuR" firstAttribute="centerX" secondItem="iay-qU-eXP" secondAttribute="centerX" type="default" id="EEz-b8-Hkk"/>
+                            <constraint firstAttribute="bottom" secondItem="tZ2-Tl-7om" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Eho-6A-eFZ"/>
+                            <constraint firstItem="iGj-vK-KuR" firstAttribute="top" secondItem="iay-qU-eXP" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Hr3-ro-YD2"/>
+                            <constraint firstItem="iGj-vK-KuR" firstAttribute="trailing" secondItem="tZ2-Tl-7om" secondAttribute="trailing" type="default" id="xvU-8y-Pgl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bloody Mary" id="vCl-fg-JQp"/>
+                    <connections>
+                        <outlet property="mixImage" destination="iGj-vK-KuR" id="xF2-Fz-T72"/>
+                        <outlet property="recipe" destination="tZ2-Tl-7om" id="5dm-qi-Oxk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4K-xV-mx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1537" y="365"/>
+        </scene>
+        <!--Navigation Controller - My Custom Mixes-->
+        <scene sceneID="c3O-dn-MHH">
+            <objects>
+                <navigationController id="N88-aT-yaJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Custom Mixes" image="potion.png" id="NZv-Y5-wQN"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="F2b-H8-din">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QB0-4G-iJD" kind="relationship" relationship="rootViewController" id="JiP-X5-Btb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WQt-LA-3k6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="650" y="365"/>
+        </scene>
+        <!--Navigation Controller - All Mixes-->
+        <scene sceneID="uER-fh-HLf">
+            <objects>
+                <navigationController id="2QS-fL-ACg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="All Mixes" image="03-loopback.png" id="Fgv-9j-KOX"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="uhc-IC-3c4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RcI-5Z-z2F" kind="relationship" relationship="rootViewController" id="awR-Gn-2zy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Io-nU-p1l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="647" y="1070"/>
+        </scene>
+        <!--Navigation Controller - Mix On Tap-->
+        <scene sceneID="zwJ-kD-Zsb">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="a9v-AA-8I9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Mix On Tap" image="syringe.png" id="xpv-Wv-ris"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="4kv-91-iFd">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6P6-a3-gw5" kind="relationship" relationship="rootViewController" id="27O-Nl-1ku"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5RK-k8-Uc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="642" y="1764"/>
+        </scene>
+        <!--Mix On Tap View Controller - Mix On Tap-->
+        <scene sceneID="eKb-eE-hc0">
+            <objects>
+                <viewController id="6P6-a3-gw5" customClass="MixOnTapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GvM-oL-kxc">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="S3q-rJ-viW">
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mixOnTapCell" id="P01-uc-E9b">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6P6-a3-gw5" id="UMA-b2-m5F"/>
+                                    <outlet property="delegate" destination="6P6-a3-gw5" id="Fyb-va-mtA"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRC-P0-vDd">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Find A Mix">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findMixPressed:" destination="6P6-a3-gw5" eventType="touchUpInside" id="6NT-VZ-efL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="rRC-P0-vDd" firstAttribute="centerX" secondItem="S3q-rJ-viW" secondAttribute="centerX" type="default" id="Qqg-YF-QKe"/>
+                            <constraint firstItem="rRC-P0-vDd" firstAttribute="top" secondItem="S3q-rJ-viW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UUL-Yl-e4A"/>
+                            <constraint firstItem="S3q-rJ-viW" firstAttribute="trailing" secondItem="GvM-oL-kxc" secondAttribute="trailing" type="default" id="Xbz-ng-Y7H"/>
+                            <constraint firstItem="S3q-rJ-viW" firstAttribute="top" secondItem="GvM-oL-kxc" secondAttribute="top" type="default" id="fKq-N3-EXq"/>
+                            <constraint firstItem="S3q-rJ-viW" firstAttribute="leading" secondItem="GvM-oL-kxc" secondAttribute="leading" type="default" id="jjD-rp-HUG"/>
+                            <constraint firstAttribute="bottom" secondItem="rRC-P0-vDd" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="uUM-ou-TPn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mix On Tap" id="Ebw-0j-mCA"/>
+                    <connections>
+                        <segue destination="VqG-bh-1G5" kind="push" identifier="showFoundMixes" id="XeN-aJ-Gam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YS0-aQ-usd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1085" y="1764"/>
+        </scene>
+        <!--Matched Mixes View Controller - Matched Mixes-->
+        <scene sceneID="DJr-ug-5nv">
+            <objects>
+                <tableViewController id="VqG-bh-1G5" customClass="MatchedMixesViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Oc7-z3-wrb">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="matchedMixCell" id="IA9-TO-j9Y">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VqG-bh-1G5" id="pdk-h2-Era"/>
+                            <outlet property="delegate" destination="VqG-bh-1G5" id="hKC-bH-9MI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Matched Mixes" id="rak-QM-Wb0"/>
+                    <connections>
+                        <segue destination="D7f-Pe-pPn" kind="push" identifier="showMatchedMixDetail" id="Cmv-6c-6xK"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SXp-kU-7ck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="1788"/>
+        </scene>
+        <!--Matched Mix Detail View Controller - Martini-->
+        <scene sceneID="AZc-Fc-nSd">
+            <objects>
+                <viewController id="D7f-Pe-pPn" customClass="MatchedMixDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eET-vZ-Cqg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8a-gH-WP7">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="6jw-Gm-1y2"/>
+                                    <constraint firstAttribute="width" constant="200" id="Akx-oZ-Ymj"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GM-VG-cDy">
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5GM-VG-cDy" firstAttribute="top" secondItem="Z8a-gH-WP7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9cF-3r-c4f"/>
+                            <constraint firstItem="Z8a-gH-WP7" firstAttribute="top" secondItem="eET-vZ-Cqg" secondAttribute="top" constant="20" symbolic="YES" type="default" id="FV7-uh-djG"/>
+                            <constraint firstItem="Z8a-gH-WP7" firstAttribute="trailing" secondItem="5GM-VG-cDy" secondAttribute="trailing" type="default" id="Ibk-m8-cn7"/>
+                            <constraint firstItem="5GM-VG-cDy" firstAttribute="centerX" secondItem="eET-vZ-Cqg" secondAttribute="centerX" type="default" id="QXE-kF-lJZ"/>
+                            <constraint firstAttribute="bottom" secondItem="5GM-VG-cDy" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="cBZ-8z-Ohf"/>
+                            <constraint firstItem="5GM-VG-cDy" firstAttribute="leading" secondItem="Z8a-gH-WP7" secondAttribute="leading" type="default" id="mGS-Cf-kVk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Martini" id="syY-94-2NW"/>
+                    <connections>
+                        <outlet property="mixImage" destination="Z8a-gH-WP7" id="K3u-mq-LQ8"/>
+                        <outlet property="recipe" destination="5GM-VG-cDy" id="bJA-fZ-do4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zWJ-Lr-UMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1934" y="1749"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="+.png" width="32" height="32"/>
+        <image name="03-loopback.png" width="32" height="22"/>
+        <image name="potion.png" width="32" height="32"/>
+        <image name="syringe.png" width="32" height="32"/>
+    </resources>
+    <classes>
+        <class className="AddMixerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMixerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addMixPressed:"/>
+                <relationship kind="action" name="keyboardDone:"/>
+                <relationship kind="outlet" name="mixAmount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mixerLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AddNewMixerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewMixerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="keyboardDone:"/>
+                <relationship kind="action" name="savePressed:"/>
+                <relationship kind="outlet" name="catName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameMixerName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AllMixesDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AllMixesDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mixImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="recipe" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="AllMixesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AllMixesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="CustomMixesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomMixesViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="MakeMixCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeMixCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mixLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MakeMixViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeMixViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="keyboardDone:"/>
+                <relationship kind="action" name="newMixerPressed:"/>
+                <relationship kind="action" name="savePressed:"/>
+                <relationship kind="action" name="takePicturePressed:"/>
+                <relationship kind="outlet" name="mixName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mixTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="pictureButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="MatchedMixDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchedMixDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mixImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="recipe" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="MatchedMixesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchedMixesViewController.h"/>
+        </class>
+        <class className="MixDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MixDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mixImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="recipe" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="MixOnTapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MixOnTapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="findMixPressed:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
