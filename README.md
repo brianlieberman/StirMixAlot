@@ -1,5 +1,6 @@
 StirMixAlot
 ===========
+Brian Lieberman
 
 iOS Final Project
 
