@@ -4,7 +4,7 @@ Brian Lieberman
 
 iOS Final Project
 
-This application is a bar tending aid designed to showcase a selection of features in the iOS SDK as well as application lifecycle development.
+This application is a bartending aid designed to showcase a selection of features in the iOS SDK as well as application lifecycle development.
 
 Some of the features found in this application include:
 
